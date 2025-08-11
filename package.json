@@ -1,7 +1,7 @@
 {
   "name": "paaro",
   "version": "1.0.0",
-  "description": "",
+  "description": "Chatbat that runs at latest openai model, for me and my friends, personalised",
   "homepage": "https://github.com/aksbrar/paaro#readme",
   "bugs": {
     "url": "https://github.com/aksbrar/paaro/issues"
