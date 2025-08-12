@@ -10,13 +10,71 @@
   display: grid;
   place-items: center;
 }
-.fix-image{
-  object-fit: cover;
-  height: 60px;
-}
 
+/* vars */
 :root{
   --black : #000000;
   --light-black : #36454F;
   --complimentary : #E0B0FF;
+}
+
+
+/* body */
+body{
+  background-color: var(--black);
+  color: var(--complimentary);
+  position: relative;
+}
+
+/* main container */
+.main-container{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* display */
+.chat-display{
+  margin: 3em;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.response{
+  font-size: 1.5em;
+}
+
+/* controls */
+.controls{
+  position: absolute;
+  bottom: 30px;
+  left: 50%;  
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  border: none;
+}
+
+.question-box{
+  width: 100%;
+  background-color: var(--light-black);
+  border-radius: 20px;
+  padding: 1em;
+  position: relative;
+  border: 4px solid var(--complimentary);
+}
+
+.submit-btn{
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  height: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+}
+
+.submit-img{
+  height: 100%;
 }
