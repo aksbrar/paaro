@@ -10,6 +10,10 @@
   display: grid;
   place-items: center;
 }
+.fix-image{
+  object-fit: cover;
+  height: 60px;
+}
 
 :root{
   --black : #000000;
