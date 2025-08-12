@@ -11,7 +11,7 @@
   <div class="main-container">
     <!-- display -->
     <div class="chat-display">
-      <p class="response">Hi aks</p>
+      <p id="responseDisplay" class="response">Hi aks</p>
     </div>
 
     <!-- control -->
@@ -19,10 +19,12 @@
       <input  type="text"
               placeholder="Type Your Query"
               class="question-box"
+              id="questionBox"
               required>
       </input>
       <button  type="submit"
-               class="submit-btn"> 
+               class="submit-btn"
+               id="sumbitBtn"> 
                <img src="logo/go.png" class="submit-img" alt="go-button">
       </button>
     </form>
