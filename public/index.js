@@ -24,5 +24,8 @@ sumbitAction.addEventListener('click', async (e) => {
   // treat answer
   const data = await res.json()
   
-  
+  // display answer
+  messageDisplay.textContent = data
+
+
 })

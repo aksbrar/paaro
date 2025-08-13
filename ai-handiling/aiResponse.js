@@ -31,7 +31,8 @@ export const getAiRes = async (res, body) => {
       ]
     })
 
-    sendRes(res, 200, "application/json", JSON.stringify(response.choices[0].message.content))
+    const aiAnswer = response.choices[0].message.content
+    sendRes(res, 200, "application/json", JSON.stringify(aiAnswer))
   } 
   catch ( error ) {
     console.log(error)
