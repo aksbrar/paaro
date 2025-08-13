@@ -16,19 +16,25 @@ const myAI = new OpenAI({
 
 
 export const getAiRes = async (res, body) => {
-  const response = await myAI.chat.completions.create({
-    model : "gpt-5",
-    messages : [
-      {
-        role : "assistant",
-        content : "You are just a random, nice guy sending kind replies"
-      },
-      {
-        role : 'user',
-        content : body.question
-      }
-    ]
-  })
+  try {
+    const response = await myAI.chat.completions.create({
+      model : "gpt-5",
+      messages : [
+        {
+          role : "assistant",
+          content : "You are just a random, nice guy sending kind replies"
+        },
+        {
+          role : 'user',
+          content : body.question
+        }
+      ]
+    })
 
-  sendRes(res, 200, "application/json", JSON.stringify(response.choices[0].message.content))
+    sendRes(res, 200, "application/json", JSON.stringify(response.choices[0].message.content))
+  } 
+  catch ( error ) {
+    console.log(error)
+    sendRes(res, 501, "plain/text", JSON.stringify("ai response error!"))
+  }
 }
