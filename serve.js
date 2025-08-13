@@ -11,7 +11,7 @@ const __dirname = import.meta.dirname
 // create server
 const server = http.createServer(async (req, res) => {
   if (req.url != "/api"){
-    const content = await serveStatic(req, __dirname)
+    serveStatic(req, res, __dirname)
   }
 })
 

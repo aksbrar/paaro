@@ -1,17 +1,24 @@
 // imports
 import fs from "node:fs/promises"
 import path from "node:path"
+import { sendRes } from "./sendRes.js"
+import { getContentType } from "./getContentType.js"
 
-export const serveStatic = async (req, absolutepath) => {
+export const serveStatic = async (req, res,  absolutepath) => {
   // get public path
-  const publicPath = path.join(absolutepath, "public")
+  const publicPath = path.join(absolutepath, 'public')
   const filepath = req.url == "/" ? "index.html" : req.url
 
   // read file path
   const fileToRead = path.join(publicPath, filepath)
 
   // read content from file
-  const content = await fs.readFile(fileToRead, "utf-8")
+  const content = await fs.readFile(fileToRead)
   
-  return content
+  // extesions data
+  const extension = path.extname(fileToRead)
+  const contentType = getContentType(extension)
+
+  // send response
+  sendRes(res, 200, contentType, content)
 }
