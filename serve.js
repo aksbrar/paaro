@@ -1,6 +1,8 @@
 // imports
 import http from "node:http"
 import { serveStatic } from "./utils/serveStatic.js"
+import { getAiRes } from "./ai-handiling/aiResponse.js"
+import { sendRes } from "./utils/sendRes.js"
 
 // port
 const port = 8000
@@ -21,8 +23,9 @@ const server = http.createServer(async (req, res) => {
       })
 
       // send res
-      req.on('end', ()=>{
-        // TODO - use the question in body, get answer from ai!
+      req.on('end', async ()=>{
+        // get ai response
+        getAiRes(res, JSON.parse(body))
       })
     }
   }

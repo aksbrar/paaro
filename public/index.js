@@ -20,8 +20,9 @@ sumbitAction.addEventListener('click', async (e) => {
       question
     })
   })
-  const data = await res.json()
 
-  // do something with data
-  // display what you got from ai!
+  // treat answer
+  const data = await res.json()
+  
+  
 })
