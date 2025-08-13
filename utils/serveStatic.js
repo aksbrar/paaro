@@ -25,9 +25,9 @@ export const serveStatic = async (req, res,  absolutepath) => {
 
   } catch (error) {
     if (error.code == "ENOENT"){
-      sendRes(res, 404, "text/plain", "404, NOT FOUND")
+      sendRes(res, 404, "text/plain", "not-found")
     } else {
-      sendRes(res, 501, "text/plain", error)
+      sendRes(res, 501, "text/plain", "server-side-error")
     }
   }
 }
