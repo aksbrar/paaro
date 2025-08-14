@@ -20,7 +20,7 @@ const myAI = new OpenAI({
 export const getAiRes = async (res, body) => {
   try {
     const response = await myAI.chat.completions.create({
-      model : "gpt-5",
+      model : "gpt-5-nano",
       messages : [
         {
           role : "assistant",

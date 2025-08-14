@@ -36,12 +36,14 @@ body{
 /* display */
 .chat-display{
   margin: 3em;
+  padding-bottom: 3.5em;
   overflow-y: auto;
   flex: 1;
 }
 
 .response{
   font-size: 1.5em;
+  line-height: 40px;
 }
 
 /* controls */
