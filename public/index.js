@@ -7,8 +7,9 @@ sumbitAction.addEventListener('click', async (e) => {
   // stop default event trigger
   e.preventDefault()
 
-  // store question
+  // store question & clear input
   const question = questionInput.value
+  questionInput.value = ""
 
   // ask for answer
   const res = await fetch('http://localhost:8000/api/answer', {
@@ -27,5 +28,6 @@ sumbitAction.addEventListener('click', async (e) => {
   // display answer
   messageDisplay.textContent = data
 
-
+  // To-do
+  // Display loading till answer does not come
 })

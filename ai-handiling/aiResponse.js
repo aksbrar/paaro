@@ -14,6 +14,8 @@ const myAI = new OpenAI({
   "apiKey" : key
 })
 
+// To-do
+// setup database, and exhange messages to keep history
 
 export const getAiRes = async (res, body) => {
   try {
