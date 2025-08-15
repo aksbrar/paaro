@@ -2,18 +2,20 @@ const getMessages = async (db) => {
   const messages = await db.query(
     `SELECT * FROM messages 
      ORDER BY timestamp
-     DESC`
+     ASC`
   ) 
 
-  return messages
+  return messages.rows
 }
 
 
-const saveMessage = async (db, role, message) => {
-  await db.query(
-    `INSERT INTO messages (role, message)
-     VALUES ($1, $2)`, [role, message]
-  )
+const saveMessage = async (db, msgs) => {
+  for (const msg of msgs) {
+    await db.query(
+      `INSERT INTO messages (role, content)
+      VALUES ($1, $2)`, [msg.role, msg.content]
+    )
+  }
 }
 
 export default {saveMessage, getMessages}
