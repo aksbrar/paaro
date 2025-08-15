@@ -17,7 +17,7 @@ const myAI = new OpenAI({
 // To-do
 // setup database, and exhange messages to keep history
 
-export const getAiRes = async (res, body) => {
+export const getAiRes = async (res, body, db) => {
   try {
     const response = await myAI.chat.completions.create({
       model : "gpt-5-nano",
