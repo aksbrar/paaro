@@ -5,7 +5,9 @@ export const intiDb = async () => {
 
   await db.query(
     `CREATE TABLE IF NOT EXISTS messages (
-      message TEXT NOT NULL
+      role VARCHAR(9) NOT NULL,
+      message TEXT NOT NULL,
+      timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )`  
   )
 
