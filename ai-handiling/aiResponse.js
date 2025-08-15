@@ -21,6 +21,13 @@ export const getAiRes = async (res, body, db) => {
     let retrievedOnes = await utils.getMessages(db)
     console.log(retrievedOnes)
 
+    const message = retrievedOnes.map(msg => {
+      return {
+        role : msg.role,
+        content : msg.content
+      }
+    })
+
     const response = await myAI.chat.completions.create({
       model : "gpt-5-nano",
       messages : [
@@ -28,6 +35,7 @@ export const getAiRes = async (res, body, db) => {
           role : "assistant",
           content : "You are just a random, nice guy sending kind replies"
         },
+        ...message,
         {
           role : 'user',
           content : body.question
